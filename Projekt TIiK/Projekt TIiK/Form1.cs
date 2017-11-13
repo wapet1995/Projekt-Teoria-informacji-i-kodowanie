@@ -50,6 +50,18 @@ namespace Projekt_TIiK
                 dict_chars[chars[i]] = counter[i]/tekst.Length;
             }
             dataGridView1.DataSource = dict_chars.ToList();
+            lb_entropy.Text = countEntropy().ToString();
+            
+        }
+
+        private double countEntropy()
+        {
+            double entropy = 0;
+            foreach(var item in dict_chars)
+            {
+                entropy += item.Value * Math.Log((1/item.Value), 2);
+            }
+            return entropy;
         }
     }
 }
