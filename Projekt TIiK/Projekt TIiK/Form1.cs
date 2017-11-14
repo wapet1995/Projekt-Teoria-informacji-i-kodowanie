@@ -15,12 +15,14 @@ namespace Projekt_TIiK
     {
         string tekst;
         Dictionary<char, double> dict_chars;
+        List<SignWithFrequencyAndInformation> signWithFrequencyAndInformation;
         public Form1()
         {
             InitializeComponent();
             dict_chars = new Dictionary<char, double>();
+            signWithFrequencyAndInformation = new List<SignWithFrequencyAndInformation>();
         }
-       
+
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
@@ -47,21 +49,41 @@ namespace Projekt_TIiK
             dict_chars.Clear();
             for (int i = 0; i < chars.Count; i++)
             {
-                dict_chars[chars[i]] = counter[i]/tekst.Length;
+                dict_chars[chars[i]] = counter[i] / tekst.Length;
             }
             dataGridView1.DataSource = dict_chars.ToList();
             lb_entropy.Text = countEntropy().ToString();
-            
+          
+            countAmountInformationPerSign();
+            lb_information.Text = countAverageInformation().ToString();
         }
 
         private double countEntropy()
         {
             double entropy = 0;
-            foreach(var item in dict_chars)
+            foreach (var item in dict_chars)
             {
-                entropy += item.Value * Math.Log((1/item.Value), 2);
+                entropy += item.Value * Math.Log((1 / item.Value), 2);
             }
             return entropy;
+        }
+
+        private void countAmountInformationPerSign() // ilosc informacji na znak
+        {
+            foreach(var item in dict_chars)
+            {
+                signWithFrequencyAndInformation.Add(new SignWithFrequencyAndInformation(item.Key, item.Value, Math.Log((1 / item.Value), 2)));   
+            }
+        }
+
+        private double countAverageInformation() // srednia ilosc informacji na znak
+        {
+            double averageInformation = 0;
+            foreach(var item in signWithFrequencyAndInformation)
+            {
+                averageInformation += item.Frequency * item.Information;
+            }
+            return averageInformation;
         }
     }
 }
