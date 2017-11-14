@@ -31,6 +31,7 @@ namespace Projekt_TIiK
             {
                 tekst = File.ReadAllText(openFileDialog1.FileName);
                 TXBox_text.Text = tekst;
+                textBoxLenghText.Text= tekst.Length.ToString();
                 Form1.ActiveForm.Text = "Projekt TIiK. Wczytany tekst: " + openFileDialog1.FileName;
             }
         }
@@ -52,10 +53,10 @@ namespace Projekt_TIiK
                 dict_chars[chars[i]] = counter[i] / tekst.Length;
             }
             dataGridView1.DataSource = dict_chars.ToList();
-            lb_entropy.Text = countEntropy().ToString();
+            textBoxEntropia.Text = countEntropy().ToString();
           
             countAmountInformationPerSign();
-            lb_information.Text = countAverageInformation().ToString();
+            textBoxEAverage.Text = countAverageInformation().ToString();
         }
 
         private double countEntropy()
@@ -84,6 +85,21 @@ namespace Projekt_TIiK
                 averageInformation += item.Frequency * item.Information;
             }
             return averageInformation;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

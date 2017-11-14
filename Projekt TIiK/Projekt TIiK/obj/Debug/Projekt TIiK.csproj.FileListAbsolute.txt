@@ -18,3 +18,12 @@ C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt TI
 C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.csproj.CoreCompileInputs.cache
 C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.exe
 C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.pdb
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Projekt TIiK.exe.config
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.exe
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.pdb
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Projekt TIiK.exe
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Projekt TIiK.pdb
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.csprojResolveAssemblyReference.cache
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt_TIiK.Form1.resources
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt_TIiK.Properties.Resources.resources
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.csproj.GenerateResource.Cache
