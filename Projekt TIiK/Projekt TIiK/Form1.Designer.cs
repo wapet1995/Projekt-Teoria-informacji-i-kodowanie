@@ -155,6 +155,7 @@
             this.Controls.Add(this.TXBox_text);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
