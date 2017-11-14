@@ -73,7 +73,8 @@ namespace Projekt_TIiK
 
         private void countAmountInformationPerSign() // ilosc informacji na znak
         {
-            foreach(var item in dict_chars)
+            signWithFrequencyAndInformation.Clear();
+            foreach (var item in dict_chars)
             {
                 signWithFrequencyAndInformation.Add(new SignWithFrequencyAndInformation(item.Key, item.Value, Math.Log((1 / item.Value), 2)));   
             }
