@@ -52,7 +52,8 @@ namespace Projekt_TIiK
             {
                 dict_chars[chars[i]] = counter[i] / tekst.Length;
             }
-            dataGridView1.DataSource = dict_chars.ToList();
+            countAmountInformationPerSign();
+            dataGridView1.DataSource = signWithFrequencyAndInformation.ToList();// dict_chars.ToList();
             textBoxEntropia.Text = countEntropy().ToString();
           
            
@@ -68,19 +69,17 @@ namespace Projekt_TIiK
             return entropy;
         }
 
-      
 
-        private double countAverageInformation() // srednia ilosc informacji na znak
+
+        private void countAmountInformationPerSign() // ilosc informacji na znak
         {
-            double averageInformation = 0;
-            foreach(var item in signWithFrequencyAndInformation)
+            foreach(var item in dict_chars)
             {
-                averageInformation += item.Frequency * item.Information;
+                signWithFrequencyAndInformation.Add(new SignWithFrequencyAndInformation(item.Key, item.Value, Math.Log((1 / item.Value), 2)));   
             }
-            return averageInformation;
         }
 
-        private void label2_Click(object sender, EventArgs e)
+private void label2_Click(object sender, EventArgs e)
         {
 
         }
