@@ -35,8 +35,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxEntropia = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxEAverage = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxLenghText = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -115,23 +113,6 @@
             this.textBoxEntropia.TabIndex = 14;
             this.textBoxEntropia.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(374, 413);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 13);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Średnia iloś informacji:";
-            // 
-            // textBoxEAverage
-            // 
-            this.textBoxEAverage.Location = new System.Drawing.Point(504, 410);
-            this.textBoxEAverage.Name = "textBoxEAverage";
-            this.textBoxEAverage.ReadOnly = true;
-            this.textBoxEAverage.Size = new System.Drawing.Size(100, 20);
-            this.textBoxEAverage.TabIndex = 16;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -167,8 +148,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBoxLenghText);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBoxEAverage);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxEntropia);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
@@ -196,8 +175,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxEntropia;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBoxEAverage;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxLenghText;
         private System.Windows.Forms.Label label5;

@@ -55,8 +55,7 @@ namespace Projekt_TIiK
             dataGridView1.DataSource = dict_chars.ToList();
             textBoxEntropia.Text = countEntropy().ToString();
           
-            countAmountInformationPerSign();
-            textBoxEAverage.Text = countAverageInformation().ToString();
+           
         }
 
         private double countEntropy()
@@ -69,13 +68,7 @@ namespace Projekt_TIiK
             return entropy;
         }
 
-        private void countAmountInformationPerSign() // ilosc informacji na znak
-        {
-            foreach(var item in dict_chars)
-            {
-                signWithFrequencyAndInformation.Add(new SignWithFrequencyAndInformation(item.Key, item.Value, Math.Log((1 / item.Value), 2)));   
-            }
-        }
+      
 
         private double countAverageInformation() // srednia ilosc informacji na znak
         {
