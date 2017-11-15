@@ -78,6 +78,7 @@ namespace Projekt_TIiK
             {
                 signWithFrequencyAndInformation.Add(new SignWithFrequencyAndInformation(item.Key, item.Value, Math.Log((1 / item.Value), 2)));   
             }
+            signWithFrequencyAndInformation = signWithFrequencyAndInformation.OrderByDescending(x => x.Frequency).ToList();
         }
 
 private void label2_Click(object sender, EventArgs e)

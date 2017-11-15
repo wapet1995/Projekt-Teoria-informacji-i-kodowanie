@@ -137,7 +137,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(120, 13);
             this.label5.TabIndex = 19;
-            this.label5.Text = "Ilość znaków w tekśćie:";
+            this.label5.Text = "Ilość znaków w tekście:";
             // 
             // Form1
             // 
