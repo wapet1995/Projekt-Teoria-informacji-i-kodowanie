@@ -169,9 +169,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(411, 403);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(165, 13);
+            this.label4.Size = new System.Drawing.Size(186, 13);
             this.label4.TabIndex = 23;
-            this.label4.Text = "Rozmiar pliku przed kodowaniem:";
+            this.label4.Text = "Rozmiar pliku przed kodowaniem (kb):";
             // 
             // textBox1
             // 
@@ -186,9 +186,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(411, 420);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(154, 13);
+            this.label6.Size = new System.Drawing.Size(175, 13);
             this.label6.TabIndex = 25;
-            this.label6.Text = "Rozmiar pliku po zakodowaniu:";
+            this.label6.Text = "Rozmiar pliku po zakodowaniu (kb):";
             // 
             // textBox2
             // 
