@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projekt_TIiK
@@ -38,7 +34,7 @@ namespace Projekt_TIiK
 
         private void button2_Click(object sender, EventArgs e)
         {
-            tekst = tekst.ToLower();
+            tekst = TXBox_text.Text.ToLower();
             dict_chars = tekst.GroupBy(c => c).ToDictionary(g => g.Key, g => (double)g.Count());
             List<char> chars = new List<char>(dict_chars.Keys);
             chars.Sort();
@@ -55,7 +51,7 @@ namespace Projekt_TIiK
             countAmountInformationPerSign();
             dataGridView1.DataSource = signWithFrequencyAndInformation.ToList();// dict_chars.ToList();
             textBoxEntropia.Text = countEntropy().ToString();
-          
+            label2.Text = "Wynik skanowania:";
            
         }
 
@@ -81,17 +77,21 @@ namespace Projekt_TIiK
             signWithFrequencyAndInformation = signWithFrequencyAndInformation.OrderByDescending(x => x.Frequency).ToList();
         }
 
-private void label2_Click(object sender, EventArgs e)
+        private void TXBox_text_TextChanged(object sender, EventArgs e)
+        {
+            textBoxLenghText.Text = TXBox_text.Text.Length.ToString();
+            if (TXBox_text.Text.Length > 0)
+                button2.Enabled = true;
+            else
+                button2.Enabled = false;
+        }
+
+        private void bt_koduj_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
+        private void bt_dekoduj_Click(object sender, EventArgs e)
         {
 
         }
