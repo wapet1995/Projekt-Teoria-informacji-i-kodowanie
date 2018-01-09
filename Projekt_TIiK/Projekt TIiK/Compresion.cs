@@ -67,10 +67,10 @@ namespace Projekt_TIiK
                     String series;
                    
                         series = entry.Value;
-                  
 
-                    
 
+
+                    MessageBox.Show(series);
                     if (series.Length < 16 )
                     {
                     
@@ -137,7 +137,7 @@ namespace Projekt_TIiK
             //zapisanie jej do tablicy 
             for (int i = 0; i < items.Length; i++)
             {
-                for (int j = 0; j < items[i].Length; j++)
+                for (int j = 1; j < items[i].Length-1; j++)
                 {
                     if(items[i][j].Equals("1"))
                     {
@@ -146,7 +146,6 @@ namespace Projekt_TIiK
                     else
                     {
                         listofBits.Add(false);
-
                     }
                 }
 
@@ -160,7 +159,7 @@ namespace Projekt_TIiK
                 else
                     str = str + "0";
             }
-            
+            MessageBox.Show(str);
         }
 
 
