@@ -15,7 +15,7 @@ namespace Projekt_TIiK
         Dictionary<String, String> dictionary =
             new Dictionary<String, String>();
 
-        public void makeDictionary(String path)
+        public string makeDictionary(String path)
         {
             string binaryData = "";
             byte show;
@@ -68,6 +68,7 @@ namespace Projekt_TIiK
             {
                 System.IO.File.WriteAllText(saveFileDialog1.FileName, encodedText);
             }
+            return encodedText;
         }
 
 
