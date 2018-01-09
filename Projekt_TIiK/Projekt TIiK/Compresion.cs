@@ -103,6 +103,11 @@ namespace Projekt_TIiK
                         listofBits.Add(char2[i]);
                     }
 
+                    for (int i = 0; i < key.Length; i++)
+                    {
+                        listofBits.Add(key[i]);
+                    }
+
                 }
             }
 
