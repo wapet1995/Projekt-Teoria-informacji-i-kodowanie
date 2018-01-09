@@ -32,6 +32,7 @@ namespace Projekt_TIiK
                 textBox1.Text = (fi.Length / 1024).ToString();
                 TXBox_text.Text = tekst;
                 textBoxLenghText.Text= tekst.Length.ToString();
+                file_path = openFileDialog1.FileName;
                 Form1.ActiveForm.Text = "Projekt TIiK. Wczytany tekst: " + openFileDialog1.FileName;
             }
         }
@@ -101,6 +102,7 @@ namespace Projekt_TIiK
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
+               
                 compresion.start(file_path, saveFileDialog1.FileName.ToString());
             }
         }

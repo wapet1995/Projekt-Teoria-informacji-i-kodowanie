@@ -109,7 +109,7 @@ namespace Projekt_TIiK
 
             StreamReader myStreamReader = myProcess.StandardOutput;
             string myString = myStreamReader.ReadToEnd(); // dane przekazane z pythona
-
+            Console.WriteLine("sad " + path +  myString);
             myProcess.WaitForExit();
             myProcess.Close();
 
