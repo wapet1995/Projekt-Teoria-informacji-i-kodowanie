@@ -21,10 +21,8 @@ namespace Projekt_TIiK
 
         {
             result = result.Replace("[", "\"[").Replace("]", "]\"");
-            MessageBox.Show("przedjsonem");
 
             dictionary = JsonConvert.DeserializeObject<Dictionary<String, String>>(result);
-            MessageBox.Show("pojsonem");
 
         }
 
@@ -69,18 +67,27 @@ namespace Projekt_TIiK
                     Boolean[] series;
 
                     series = Convert.ToString(Int16.Parse(entry.Value), 2).Select(s => s.Equals('1')).ToArray();
+
+                  
                     Boolean[] sizeofSeries;
                     sizeofSeries = Convert.ToString(series.Length, 2).Select(s => s.Equals('1')).ToArray();
 
-                    if (sizeofSeries.Length < 16)
+                    if (sizeofSeries.Length < 16 && Int16.Parse(entry.Value)>-1)
                     {
+                       
                         for (int i = 0; i < 16 - sizeofSeries.Length; i++)
                         { listofBits.Add(false); }
                     }
-
-                    for (int i = 0; i < sizeofSeries.Length; i++)
-                    { listofBits.Add(sizeofSeries[i]); }
-
+                    if (Int16.Parse(entry.Value) > -1)
+                    {
+                        for (int i = 0; i < sizeofSeries.Length; i++)
+                        { listofBits.Add(sizeofSeries[i]); }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < series.Length; i++)
+                        { listofBits.Add(series[i]); }
+                    }
 
                     Boolean[] char1 = Convert.ToString((Int16)entry.Key[0], 2).Select(s => s.Equals('1')).ToArray();
 
@@ -121,7 +128,6 @@ namespace Projekt_TIiK
             //zapisanie jej do tablicy 
             for (int i = 0; i < items.Length; i++)
             {
-
                 Boolean[] pair = Convert.ToString(items[i], 2).Select(s => s.Equals('1')).ToArray();
                 for (int j = 0; j < pair.Length; j++)
                 {
@@ -138,10 +144,7 @@ namespace Projekt_TIiK
                 else
                     str = str + "0";
             }
-
-            Debug.Write("wartość zapisana: " + str);
-
-
+            
         }
 
 

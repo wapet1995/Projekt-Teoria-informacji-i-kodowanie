@@ -86,25 +86,16 @@ namespace Projekt_TIiK
         {
             textBoxLenghText.Text = TXBox_text.Text.Length.ToString();
             if (TXBox_text.Text.Length > 0)
-            {
                 button2.Enabled = true;
-                if (file_path.Length > 0)
-                    bt_koduj.Enabled = true;
-                else
-                    bt_koduj.Enabled = false;
-            }
             else
-            {
                 button2.Enabled = false;
-                bt_koduj.Enabled = false;
-            }
-                  
         }
 
         private void bt_koduj_Click(object sender, EventArgs e)
         {
             Compresion compresion = new Compresion();
-            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            compresion.test();
+           /* SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt";
             saveFileDialog1.FilterIndex = 2;
@@ -115,17 +106,17 @@ namespace Projekt_TIiK
                 compresion.start(file_path, saveFileDialog1.FileName.ToString());
                 FileInfo fi = new FileInfo(saveFileDialog1.FileName);
                 textBox1.Text = (fi.Length / 1024).ToString();
-            }
+            }*/
         }
 
         private void bt_dekoduj_Click(object sender, EventArgs e)
         {
             Decompresion decompresion = new Decompresion();
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Image files (*.bin) |";
+            openFileDialog1.Filter = "Image files (*.bin) | *.txt";
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                TXBox_text.Text = decompresion.makeDictionary(openFileDialog1.FileName);
+                decompresion.makeDictionary(openFileDialog1.FileName);
             }
         }
     }
