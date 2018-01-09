@@ -96,21 +96,27 @@ namespace Projekt_TIiK
             Compresion compresion = new Compresion();
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt";
             saveFileDialog1.FilterIndex = 2;
             saveFileDialog1.RestoreDirectory = true;
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-               
                 compresion.start(file_path, saveFileDialog1.FileName.ToString());
+                FileInfo fi = new FileInfo(saveFileDialog1.FileName);
+                textBox1.Text = (fi.Length / 1024).ToString();
             }
         }
 
         private void bt_dekoduj_Click(object sender, EventArgs e)
         {
             Decompresion decompresion = new Decompresion();
-            decompresion.makeDictionary("file.bin");
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "Image files (*.bin) | *.txt";
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                decompresion.makeDictionary(openFileDialog1.FileName);
+            }
         }
     }
 }

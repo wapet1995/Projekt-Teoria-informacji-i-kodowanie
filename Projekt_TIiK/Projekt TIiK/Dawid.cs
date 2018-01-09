@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Projekt_TIiK
 {
@@ -58,9 +59,15 @@ namespace Projekt_TIiK
                     codeSignFromText = "";
                 }
             }
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
 
-            System.IO.File.WriteAllText("encoded.txt", encodedText);
-
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                System.IO.File.WriteAllText(saveFileDialog1.FileName, encodedText);
+            }
         }
 
 
