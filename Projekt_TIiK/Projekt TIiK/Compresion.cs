@@ -45,7 +45,7 @@ namespace Projekt_TIiK
 
         public void test()
         {
-            using (StreamReader sr = new StreamReader("data2.json"))
+            using (StreamReader sr = new StreamReader("data3.json"))
             {
                 // Read the stream to a string, and write the string to the console.
                 String line = sr.ReadToEnd();
@@ -68,29 +68,29 @@ namespace Projekt_TIiK
                    
                         series = entry.Value;
 
-
-
                     MessageBox.Show(series);
                     if (series.Length < 16 )
                     {
                     
-                        for (int i = 0; i < 16 - series.Length; i++)
+                        for (int i = 0; i < 16 - series.Length-1; i++)
                         { listofBits.Add(false); }
                     }
 
-                    for (int i = 0; i < series.Length; i++)
+                    for (int i = 0; i < series.Length-1; i++)
                     {
                         if (series[i].Equals("1"))
                         {
+                            MessageBox.Show("jedynka");
                             listofBits.Add(true);
                         }
                         else
                         {
+                            MessageBox.Show("zero");
                             listofBits.Add(false);
                         }
                     }
-                   
 
+                    MessageBox.Show("na nowo");
                     Boolean[] char1 = Convert.ToString((Int16)entry.Key[0], 2).Select(s => s.Equals('1')).ToArray();
 
                     for (int i = 0; i < 8 - char1.Length; i++)
