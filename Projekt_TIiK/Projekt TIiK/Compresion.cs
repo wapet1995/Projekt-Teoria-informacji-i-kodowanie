@@ -58,19 +58,21 @@ namespace Projekt_TIiK
                     key = Convert.ToString(Int32.Parse(entry.Value), 2).Select(s => s.Equals('1')).ToArray();
 
 
+                    Boolean[] sizeofKey;
+                    sizeofKey= Convert.ToString(key.Length, 2).Select(s => s.Equals('1')).ToArray();
 
-            //liczba dobrze działa 
-                    if (key.Length < 16)
+
+                    if (sizeofKey.Length < 16)
                     {
-                        for (int i = 0; i < 16 - key.Length; i++)
+                        for (int i = 0; i < 16 - sizeofKey.Length; i++)
                         {
                             listofBits.Add(false);
                           
                         }
                     }
-                    for (int i = 0; i < key.Length; i++)
+                    for (int i = 0; i < sizeofKey.Length; i++)
                     {
-                        listofBits.Add(key[i]);
+                        listofBits.Add(sizeofKey[i]);
                      
                     }
                  
