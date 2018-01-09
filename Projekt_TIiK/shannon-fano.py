@@ -67,7 +67,7 @@ def write_json(splited_text, last_dict):
     #print(last_dict)
     with open('data.json', 'w', encoding='utf-8') as outfile:
         json.dump(last_dict, outfile, ensure_ascii=False)
-
+    print(last_dict)
 
 # -------------------------   MAIN   ----------------------------------
 if __name__ == '__main__':
