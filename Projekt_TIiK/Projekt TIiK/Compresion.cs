@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projekt_TIiK
 {
-    class Compresion
+    public partial class Compresion
     {
         
     }
