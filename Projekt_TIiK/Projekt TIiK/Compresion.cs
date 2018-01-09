@@ -115,14 +115,22 @@ namespace Projekt_TIiK
             string value;
            dictionary.TryGetValue("text",out value);
 
-            value.Replace(", ", ",");
+         
+            value=value.Replace("[","").Replace("]","");
+            
+         
             //przerobienie tekstu na tablice intów
-            Debug.Write(value);
+         
 
            // Nie działa :(
-           /* int[] items = value.Split(',').Select(n => Convert.ToInt32(n)).ToArray();
+           int[] items = value.Split(',').Select(n => Convert.ToInt32(n)).ToArray();
 
-           
+
+            for (int j = 0; j < 16; j++)
+            {
+                listofBits.Add(false);
+            }
+
             //zapisanie jej do tablicy 
             for (int i = 0; i < items.Length; i++)
             {
@@ -134,12 +142,8 @@ namespace Projekt_TIiK
                 }
 
             }
-            */
             
-            for (int j = 0; j < 16; j++)
-            {
-                listofBits.Add(false);
-            }
+           
 
             String mes= "";
             foreach (var item in listofBits)
@@ -149,9 +153,7 @@ namespace Projekt_TIiK
                 else
                     mes = mes + "0";
             }
-            MessageBox.Show(mes);
-
-            Debug.Write("wiadomosc:      \n"+mes);
+            Debug.Write(mes);
 
         }
 
