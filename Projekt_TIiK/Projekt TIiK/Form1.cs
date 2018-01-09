@@ -91,12 +91,14 @@ namespace Projekt_TIiK
         private void bt_koduj_Click(object sender, EventArgs e)
         {
 
+            Compresion compresion = new Compresion();
+            compresion.start("data.json", "file.bin");
         }
 
         private void bt_dekoduj_Click(object sender, EventArgs e)
         {
-            Compresion compresion = new Compresion();
-            compresion.start("data.json", "file.bin");
+            Decompresion decompresion = new Decompresion();
+            decompresion.makeDictionary("file.bin");
         }
     }
 }
