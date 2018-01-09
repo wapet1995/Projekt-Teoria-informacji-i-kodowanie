@@ -88,15 +88,10 @@ namespace Projekt_TIiK
             if (TXBox_text.Text.Length > 0)
             {
                 button2.Enabled = true;
-                if (file_path.Length > 0)
-                    bt_koduj.Enabled = true;
-                else
-                    bt_koduj.Enabled = false;
             }
             else
             {
                 button2.Enabled = false;
-                bt_koduj.Enabled = false;
             }
 
         }
