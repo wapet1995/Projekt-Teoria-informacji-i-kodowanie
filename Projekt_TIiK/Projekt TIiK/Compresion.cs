@@ -21,8 +21,11 @@ namespace Projekt_TIiK
 
         {
             result = result.Replace("[", "\"[").Replace("]", "]\"");
-            
+            MessageBox.Show("przedjsonem");
+
             dictionary = JsonConvert.DeserializeObject<Dictionary<String, String>>(result);
+            MessageBox.Show("pojsonem");
+
         }
 
         private void writeToFile(String dictionaryFromPython, String path)
@@ -44,25 +47,14 @@ namespace Projekt_TIiK
 
         public void test()
         {
-            using (StreamReader sr = new StreamReader("data.json"))
+            using (StreamReader sr = new StreamReader("data2.json"))
             {
                 // Read the stream to a string, and write the string to the console.
                 String line = sr.ReadToEnd();
                 writeToFile(line, "sample.bin");
             }
 
-
-            bool showStatusBar;
-            String val = "";
-            using (BinaryReader reader = new BinaryReader(File.Open("sample.bin", FileMode.Open)))
-            {
-                while (reader.BaseStream.Position != reader.BaseStream.Length)
-                {
-                    MessageBox.Show(reader.ReadInt16().ToString());
-                    MessageBox.Show(reader.ReadChar().ToString());
-                    MessageBox.Show(reader.ReadChar().ToString());
-                }
-            }
+            
 
         }
 
@@ -70,11 +62,13 @@ namespace Projekt_TIiK
         {
             foreach (KeyValuePair<String, String> entry in dictionary)
             {
+
+
                 if (entry.Key != "text")
                 {
                     Boolean[] series;
 
-                    series = Convert.ToString(Int32.Parse(entry.Value), 2).Select(s => s.Equals('1')).ToArray();
+                    series = Convert.ToString(Int16.Parse(entry.Value), 2).Select(s => s.Equals('1')).ToArray();
                     Boolean[] sizeofSeries;
                     sizeofSeries = Convert.ToString(series.Length, 2).Select(s => s.Equals('1')).ToArray();
 
@@ -87,24 +81,26 @@ namespace Projekt_TIiK
                     for (int i = 0; i < sizeofSeries.Length; i++)
                     { listofBits.Add(sizeofSeries[i]); }
 
-                    
+
                     Boolean[] char1 = Convert.ToString((Int16)entry.Key[0], 2).Select(s => s.Equals('1')).ToArray();
-                  
+
                     for (int i = 0; i < 8 - char1.Length; i++)
                     { listofBits.Add(false); }
                     for (int i = 0; i < char1.Length; i++)
                     { listofBits.Add(char1[i]); }
 
-                    if(Int32.Parse(entry.Value)>-1)
+                    if (Int32.Parse(entry.Value) > -1)
                     {
                         Boolean[] char2 = Convert.ToString((Int16)entry.Key[1], 2).Select(s => s.Equals('1')).ToArray();
-                    
-                    for (int i = 0; i < 8 - char2.Length; i++)
-                    { listofBits.Add(false); }
-                    for (int i = 0; i < char2.Length; i++)
-                    { listofBits.Add(char2[i]); }
-                    
+
+                        for (int i = 0; i < 8 - char2.Length; i++)
+                        { listofBits.Add(false); }
+                        for (int i = 0; i < char2.Length; i++)
+                        { listofBits.Add(char2[i]); }
+
                     }
+                   
+
                     for (int i = 0; i < series.Length; i++)
                     { listofBits.Add(series[i]); }
                 }
@@ -114,7 +110,7 @@ namespace Projekt_TIiK
             string value;
             dictionary.TryGetValue("text", out value);
             value = value.Replace("[", "").Replace("]", "");
-            int[] items = value.Split(',').Select(n => Convert.ToInt32(n)).ToArray();
+            short[] items = value.Split(',').Select(n => Convert.ToInt16(n)).ToArray();
 
 
             for (int j = 0; j < 16; j++)
