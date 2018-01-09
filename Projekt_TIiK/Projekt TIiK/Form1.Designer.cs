@@ -107,9 +107,8 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(374, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 13);
+            this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Wynik skanowania";
             // 
             // textBoxEntropia
             // 
@@ -176,7 +175,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(600, 400);
+            this.textBox1.Location = new System.Drawing.Point(600, 398);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(100, 20);

@@ -51,7 +51,7 @@ namespace Projekt_TIiK
             countAmountInformationPerSign();
             dataGridView1.DataSource = signWithFrequencyAndInformation.ToList();// dict_chars.ToList();
             textBoxEntropia.Text = countEntropy().ToString();
-          
+            label2.Text = "Wynik skanowania:";
            
         }
 
