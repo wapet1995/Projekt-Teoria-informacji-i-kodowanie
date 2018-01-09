@@ -29,6 +29,13 @@ namespace Projekt_TIiK
             getDictionaryFromResult(result);
             convert();
 
+            using (BinaryWriter writer = new BinaryWriter(File.Open(path, FileMode.Create)))
+            {
+               foreach(var item in listofBits)
+                {
+                    writer.Write(item);
+                }
+            }
 
 
 
@@ -118,11 +125,10 @@ namespace Projekt_TIiK
          
             value=value.Replace("[","").Replace("]","");
             
-         
-            //przerobienie tekstu na tablice intów
+      
          
 
-           // Nie działa :(
+           
            int[] items = value.Split(',').Select(n => Convert.ToInt32(n)).ToArray();
 
 
@@ -145,15 +151,7 @@ namespace Projekt_TIiK
             
            
 
-            String mes= "";
-            foreach (var item in listofBits)
-            {
-                if (item)
-                    mes = mes + "1";
-                else
-                    mes = mes + "0";
-            }
-            Debug.Write(mes);
+          
 
         }
 
