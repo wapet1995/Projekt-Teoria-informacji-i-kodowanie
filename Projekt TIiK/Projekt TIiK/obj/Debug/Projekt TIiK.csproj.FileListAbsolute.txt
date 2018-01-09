@@ -36,3 +36,5 @@ C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug
 C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt_TIiK.Form1.resources
 C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt_TIiK.Properties.Resources.resources
 C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.csproj.GenerateResource.Cache
+C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Newtonsoft.Json.dll
+C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Newtonsoft.Json.xml
