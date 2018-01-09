@@ -23,11 +23,15 @@ namespace Projekt_TIiK
             {
                 while (reader.BaseStream.Position != reader.BaseStream.Length)
                 {
-                    show = reader.ReadByte();
-                    binaryData += show;
+                    bool tempBool = reader.ReadBoolean();
+                    if (tempBool == true)
+                        binaryData += "1";
+                    else
+                        binaryData += "0";
+
                 }
             }
-           
+
             char[] tekstArray = binaryData.ToArray();
 
             int i = 0;
@@ -38,11 +42,18 @@ namespace Projekt_TIiK
                 if (lengthBinaryInt <= 0)
                     break;
 
+                if (i + 32 > tekstArray.Length)
+                    break;
+                    
                 string firstSignBinary = binaryData.Substring(i + 16, 8);
                 string secondSignBinary = binaryData.Substring(i + 24, 8);
                 string coupleSings = Convert.ToChar(BitStringToInt(firstSignBinary)) + "" + Convert.ToChar(BitStringToInt(secondSignBinary));
                 string codeSign = binaryData.Substring(i + 32, lengthBinaryInt);
-                dictionary.Add(codeSign, coupleSings );
+                Console.WriteLine("dlugosc: " + lengthBinary + "pierwszy znak" + firstSignBinary + " drugi " + secondSignBinary + " kod" + codeSign);
+                Console.WriteLine(codeSign + " " + coupleSings);
+                dictionary.Add(codeSign, coupleSings);
+                if (i + 32 + lengthBinaryInt > tekstArray.Length)
+                    break;
                 i = i + 32 + lengthBinaryInt;
             }
 
