@@ -105,9 +105,9 @@ namespace Projekt_TIiK
                     }
                    
 
-                    for (int i = 0; i < series.Length; i++)
+                    for (int i = 0; i < entry.Value.Length; i++)
                     {
-                        if(series[i].Equals("1"))
+                        if(entry.Value.Equals('1'))
                         { listofBits.Add(true); }
                         else
                         {
