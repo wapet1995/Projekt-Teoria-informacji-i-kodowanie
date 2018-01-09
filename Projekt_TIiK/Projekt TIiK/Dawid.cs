@@ -48,7 +48,8 @@ namespace Projekt_TIiK
                 }
             }
 
-            
+            System.IO.File.WriteAllText("encoded.txt", encodedText);
+
         }
 
 

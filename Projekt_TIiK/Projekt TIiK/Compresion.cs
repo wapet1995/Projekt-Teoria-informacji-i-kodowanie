@@ -29,6 +29,13 @@ namespace Projekt_TIiK
             getDictionaryFromResult(result);
             convert();
 
+            using (BinaryWriter writer = new BinaryWriter(File.Open(path, FileMode.Create)))
+            {
+               foreach(var item in listofBits)
+                {
+                    writer.Write(item);
+                }
+            }
 
 
 
@@ -115,14 +122,21 @@ namespace Projekt_TIiK
             string value;
            dictionary.TryGetValue("text",out value);
 
-            value.Replace(", ", ",");
-            //przerobienie tekstu na tablice intów
-            Debug.Write(value);
-
-           // Nie działa :(
-           /* int[] items = value.Split(',').Select(n => Convert.ToInt32(n)).ToArray();
+         
+            value=value.Replace("[","").Replace("]","");
+            
+      
+         
 
            
+           int[] items = value.Split(',').Select(n => Convert.ToInt32(n)).ToArray();
+
+
+            for (int j = 0; j < 16; j++)
+            {
+                listofBits.Add(false);
+            }
+
             //zapisanie jej do tablicy 
             for (int i = 0; i < items.Length; i++)
             {
@@ -134,24 +148,10 @@ namespace Projekt_TIiK
                 }
 
             }
-            */
             
-            for (int j = 0; j < 16; j++)
-            {
-                listofBits.Add(false);
-            }
+           
 
-            String mes= "";
-            foreach (var item in listofBits)
-            {
-                if (item)
-                    mes = mes + "1";
-                else
-                    mes = mes + "0";
-            }
-            MessageBox.Show(mes);
-
-            Debug.Write("wiadomosc:      \n"+mes);
+          
 
         }
 
