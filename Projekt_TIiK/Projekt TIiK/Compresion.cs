@@ -64,37 +64,32 @@ namespace Projekt_TIiK
 
                 if (entry.Key != "text")
                 {
-                    String series;
-                   
-                        series = entry.Value;
-
-                    MessageBox.Show(series);
-                    if (series.Length < 16 )
+                    String series = Convert.ToString(entry.Value.Length, 2);
+                    for(int i=0; i<16- series.Length; i++)
                     {
-                    
-                        for (int i = 0; i < 16 - series.Length-1; i++)
-                        { listofBits.Add(false); }
+                        listofBits.Add(false);
                     }
 
-                    for (int i = 0; i < series.Length-1; i++)
+                    for (int i=0; i<series.Length; i++)
                     {
-                        if (series[i].Equals("1"))
+                        
+                        if(series[i].Equals('1'))
                         {
-                            MessageBox.Show("jedynka");
                             listofBits.Add(true);
                         }
                         else
                         {
-                            MessageBox.Show("zero");
                             listofBits.Add(false);
                         }
                     }
 
-                    MessageBox.Show("na nowo");
+
+               
                     Boolean[] char1 = Convert.ToString((Int16)entry.Key[0], 2).Select(s => s.Equals('1')).ToArray();
 
                     for (int i = 0; i < 8 - char1.Length; i++)
-                    { listofBits.Add(false); }
+                    { listofBits.Add(false);
+                    }
                     for (int i = 0; i < char1.Length; i++)
                     { listofBits.Add(char1[i]); }
 
@@ -128,7 +123,8 @@ namespace Projekt_TIiK
             value = value.Replace("[", "").Replace("]", "");
             String[] items = value.Split(',').Select(n => n).ToArray();
 
-
+            MessageBox.Show(items[0]);
+            MessageBox.Show(value);
             for (int j = 0; j < 16; j++)
             {
                 listofBits.Add(false);
@@ -137,9 +133,9 @@ namespace Projekt_TIiK
             //zapisanie jej do tablicy 
             for (int i = 0; i < items.Length; i++)
             {
-                for (int j = 1; j < items[i].Length-1; j++)
+                for (int j = 0; j < items[i].Length; j++)
                 {
-                    if(items[i][j].Equals("1"))
+                    if(items[i][j].Equals('1'))
                     {
                         listofBits.Add(true);
                     }
@@ -159,7 +155,7 @@ namespace Projekt_TIiK
                 else
                     str = str + "0";
             }
-            MessageBox.Show(str);
+            Debug.Write(str);
         }
 
 
