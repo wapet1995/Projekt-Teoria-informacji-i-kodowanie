@@ -1,0 +1,40 @@
+H:\Maciej\studia\Semestr VII\moje\Tiik\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Projekt TIiK.exe.config
+H:\Maciej\studia\Semestr VII\moje\Tiik\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Projekt TIiK.exe
+H:\Maciej\studia\Semestr VII\moje\Tiik\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Projekt TIiK.pdb
+H:\Maciej\studia\Semestr VII\moje\Tiik\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.csprojResolveAssemblyReference.cache
+H:\Maciej\studia\Semestr VII\moje\Tiik\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt_TIiK.Form1.resources
+H:\Maciej\studia\Semestr VII\moje\Tiik\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt_TIiK.Properties.Resources.resources
+H:\Maciej\studia\Semestr VII\moje\Tiik\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.csproj.GenerateResource.Cache
+H:\Maciej\studia\Semestr VII\moje\Tiik\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.csproj.CoreCompileInputs.cache
+H:\Maciej\studia\Semestr VII\moje\Tiik\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.exe
+H:\Maciej\studia\Semestr VII\moje\Tiik\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.pdb
+C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Projekt TIiK.exe.config
+C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Projekt TIiK.exe
+C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Projekt TIiK.pdb
+C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.csprojResolveAssemblyReference.cache
+C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt_TIiK.Form1.resources
+C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt_TIiK.Properties.Resources.resources
+C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.csproj.GenerateResource.Cache
+C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.csproj.CoreCompileInputs.cache
+C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.exe
+C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.pdb
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Projekt TIiK.exe.config
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.exe
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.pdb
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Projekt TIiK.exe
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Projekt TIiK.pdb
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.csprojResolveAssemblyReference.cache
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt_TIiK.Form1.resources
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt_TIiK.Properties.Resources.resources
+D:\GIT_REPOSITORY\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.csproj.GenerateResource.Cache
+C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Projekt TIiK.exe.config
+C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.exe
+C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.pdb
+C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Projekt TIiK.exe
+C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Projekt TIiK.pdb
+C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.csprojResolveAssemblyReference.cache
+C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt_TIiK.Form1.resources
+C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt_TIiK.Properties.Resources.resources
+C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\obj\Debug\Projekt TIiK.csproj.GenerateResource.Cache
+C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Newtonsoft.Json.dll
+C:\GIT\Projekt-Teoria-informacji-i-kodowanie\Projekt TIiK\Projekt TIiK\bin\Debug\Newtonsoft.Json.xml
