@@ -101,7 +101,7 @@ namespace Projekt_TIiK
             Compresion compresion = new Compresion();
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-            saveFileDialog1.Filter = "txt files (*.txt)|*.txt";
+            saveFileDialog1.Filter = "txt files (*.bin)|";
             saveFileDialog1.FilterIndex = 2;
             saveFileDialog1.RestoreDirectory = true;
 
