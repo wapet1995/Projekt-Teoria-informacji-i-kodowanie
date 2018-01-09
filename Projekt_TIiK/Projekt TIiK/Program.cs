@@ -18,7 +18,7 @@ namespace Projekt_TIiK
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
             Compresion a = new Compresion();
-            a.test();
+            
         }
     }
 }
