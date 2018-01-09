@@ -51,17 +51,20 @@ def shannon_fano_encoder(iA, iB): # iA to iB : index interval
 def write_json(splited_text, last_dict):
     for key, val in last_dict.items():
         last_dict[key] = int(last_dict[key], base=2)
+        if len(key)==1:
+            last_dict[key] = last_dict[key] * -1
 
     tmp = []
     for i in splited_text:
         tmp.append(last_dict[i])
 
-    for key, val in last_dict.items():
+    '''for key, val in last_dict.items():
         if len(key)==1:
-            last_dict[key] = last_dict[key] * -1
+            last_dict[key] = last_dict[key] * -1'''
 
     last_dict.update({"text": tmp})
 
+    #print(last_dict)
     with open('data.json', 'w', encoding='utf-8') as outfile:
         json.dump(last_dict, outfile, ensure_ascii=False)
 
