@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Compresion.cs" />
+    <Compile Include="Damian.cs" />
+    <Compile Include="Dawid.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
