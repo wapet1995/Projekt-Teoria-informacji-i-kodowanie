@@ -16,8 +16,17 @@ namespace Projekt_TIiK
 
         public void makeDictionary(String path)
         {
-            StreamReader streamReader = new StreamReader(path, Encoding.UTF8);
-            string binaryData = streamReader.ReadToEnd();
+            string binaryData = "";
+            byte show;
+            using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
+            {
+                while (reader.BaseStream.Position != reader.BaseStream.Length)
+                {
+                    show = reader.ReadByte();
+                    binaryData += show;
+                }
+            }
+           
             char[] tekstArray = binaryData.ToArray();
 
             int i = 0;
@@ -28,23 +37,25 @@ namespace Projekt_TIiK
                 if (lengthBinaryInt <= 0)
                     break;
 
-                string firstSignBinary = binaryData.Substring(i + 16, 16);
-                string secondSignBinary = binaryData.Substring(i + 32, 16);
+                string firstSignBinary = binaryData.Substring(i + 16, 8);
+                string secondSignBinary = binaryData.Substring(i + 24, 8);
                 string coupleSings = Convert.ToChar(BitStringToInt(firstSignBinary)) + "" + Convert.ToChar(BitStringToInt(secondSignBinary));
-                string codeSign = binaryData.Substring(i + 48, lengthBinaryInt);
+                string codeSign = binaryData.Substring(i + 32, lengthBinaryInt);
                 dictionary.Add(codeSign, coupleSings );
-                i = i + 48 + lengthBinaryInt;
+                i = i + 32 + lengthBinaryInt;
             }
 
             i = i + 16;
             string codeSignFromText = "";
             string encodedText = "";
-            for (; i < tekstArray.Length; )
+            for (; i < tekstArray.Length; i++)
             {
+
                 codeSignFromText += tekstArray[i];
-                if(dictionary.Where(x=>x.Key == codeSignFromText).Any())
+                if (dictionary.Where(x => x.Key == codeSignFromText).Any())
                 {
                     encodedText += dictionary[codeSignFromText];
+                    codeSignFromText = "";
                 }
             }
 
