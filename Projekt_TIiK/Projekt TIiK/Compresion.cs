@@ -17,16 +17,16 @@ namespace Projekt_TIiK
             new Dictionary<String, String>();
         List<Boolean> listofBits = new List<Boolean>();
        
-        private void getDictionaryFromResult(String result)
+        private void getDictionaryFromPython(String result)
 
         {
-            Debug.Write(result);
+            result = result.Replace("[", "\"[").Replace("]", "]\"");
             dictionary =JsonConvert.DeserializeObject<Dictionary<String, String>>(result);
         }
 
-        private void writeToFile(String result, String path)
+        private void writeToFile(String dictionaryFromPython, String path)
         {
-            getDictionaryFromResult(result);
+            this.getDictionaryFromPython(dictionaryFromPython);
             convert();
 
             using (BinaryWriter writer = new BinaryWriter(File.Open(path, FileMode.Create)))
@@ -41,94 +41,57 @@ namespace Projekt_TIiK
 
         }
 
-        public void test()
+  public void test()
         {
-
             using (StreamReader sr = new StreamReader("data.json"))
             {
                 // Read the stream to a string, and write the string to the console.
                 String line = sr.ReadToEnd();
-                
-                line = line.Replace("[", "\"[").Replace("]","]\"");
-                MessageBox.Show(line);
                 writeToFile(line, "sample.bin");
             }
-    }
+            
+        }
 
         private void convert()
         {
             foreach (KeyValuePair<String, String> entry in dictionary)
             {
                 if (entry.Key != "text") {
-                    Boolean[] key;
+                    Boolean[] series;
 
-                    key = Convert.ToString(Int32.Parse(entry.Value), 2).Select(s => s.Equals('1')).ToArray();
+                    series = Convert.ToString(Int32.Parse(entry.Value), 2).Select(s => s.Equals('1')).ToArray();
+                    Boolean[] sizeofSeries;
+                    sizeofSeries= Convert.ToString(series.Length, 2).Select(s => s.Equals('1')).ToArray();
 
-
-                    Boolean[] sizeofKey;
-                    sizeofKey= Convert.ToString(key.Length, 2).Select(s => s.Equals('1')).ToArray();
-
-
-                    if (sizeofKey.Length < 16)
+                    if (sizeofSeries.Length < 16)
                     {
-                        for (int i = 0; i < 16 - sizeofKey.Length; i++)
-                        {
-                            listofBits.Add(false);
-                          
-                        }
+                        for (int i = 0; i < 16 - sizeofSeries.Length; i++)
+                        {listofBits.Add(false);}
                     }
-                    for (int i = 0; i < sizeofKey.Length; i++)
-                    {
-                        listofBits.Add(sizeofKey[i]);
-                     
-                    }
+
+                    for (int i = 0; i < sizeofSeries.Length; i++)
+                    {listofBits.Add(sizeofSeries[i]);}
                  
+                    Boolean[] char1 = Convert.ToString((Int16)entry.Key[0], 2).Select(s => s.Equals('1')).ToArray();
+                    Boolean[] char2 = Convert.ToString((Int16)entry.Key[1], 2).Select(s => s.Equals('1')).ToArray();
 
-                    //para znaków do bitlist
-              
-
-                    Boolean[] char1;
-                    Boolean[] char2;
-
-                    char1= Convert.ToString((Int16)entry.Key[0], 2).Select(s => s.Equals('1')).ToArray();
-                    char2 = Convert.ToString((Int16)entry.Key[1], 2).Select(s => s.Equals('1')).ToArray();
-
-                   for(int i=0; i<8-char1.Length; i++)
-                    {
-                        listofBits.Add(false);
-                    }
-                   for(int i=0; i<char1.Length; i++)
-                    {
-                        listofBits.Add(char1[i]);
-                    }
+                    for(int i=0; i<8-char1.Length; i++)
+                    {listofBits.Add(false);}
+                    for(int i=0; i<char1.Length; i++)
+                    {listofBits.Add(char1[i]);}
                     for (int i = 0; i < 8 - char2.Length; i++)
-                    {
-                        listofBits.Add(false);
-                    }
+                    {listofBits.Add(false); }
                     for (int i = 0; i < char2.Length; i++)
-                    {
-                        listofBits.Add(char2[i]);
-                    }
-
-                    for (int i = 0; i < key.Length; i++)
-                    {
-                        listofBits.Add(key[i]);
-                    }
-
+                    {listofBits.Add(char2[i]);}
+                    for (int i = 0; i < series.Length; i++)
+                    {listofBits.Add(series[i]);}
                 }
             }
 
-            //wczytanie tekstu
-            string value;
-           dictionary.TryGetValue("text",out value);
-
-         
-            value=value.Replace("[","").Replace("]","");
             
-      
-         
-
-           
+            string value;
+            dictionary.TryGetValue("text",out value);
+            value=value.Replace("[","").Replace("]","");
            int[] items = value.Split(',').Select(n => Convert.ToInt32(n)).ToArray();
 
 
@@ -148,9 +111,16 @@ namespace Projekt_TIiK
                 }
 
             }
-            
-           
+            var str = "";
+            foreach(var item in listofBits)
+            {
+                if (item)
+                { str = str+"1"; }
+                else
+                    str = str + "0";
+            }
 
+            Debug.Write(str);
           
 
         }

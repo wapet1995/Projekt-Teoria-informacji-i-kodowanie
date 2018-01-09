@@ -107,7 +107,8 @@ namespace Projekt_TIiK
 
         private void bt_dekoduj_Click(object sender, EventArgs e)
         {
-           
+            Decompresion decompresion = new Decompresion();
+            decompresion.makeDictionary("file.bin");
         }
     }
 }
