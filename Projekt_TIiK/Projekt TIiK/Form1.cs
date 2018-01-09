@@ -86,9 +86,19 @@ namespace Projekt_TIiK
         {
             textBoxLenghText.Text = TXBox_text.Text.Length.ToString();
             if (TXBox_text.Text.Length > 0)
+            {
                 button2.Enabled = true;
+                if (file_path.Length > 0)
+                    bt_koduj.Enabled = true;
+                else
+                    bt_koduj.Enabled = false;
+            }
             else
+            {
                 button2.Enabled = false;
+                bt_koduj.Enabled = false;
+            }
+                  
         }
 
         private void bt_koduj_Click(object sender, EventArgs e)
@@ -112,10 +122,10 @@ namespace Projekt_TIiK
         {
             Decompresion decompresion = new Decompresion();
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Image files (*.bin) | *.txt";
+            openFileDialog1.Filter = "Image files (*.bin) |";
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                decompresion.makeDictionary(openFileDialog1.FileName);
+                TXBox_text.Text = decompresion.makeDictionary(openFileDialog1.FileName);
             }
         }
     }
