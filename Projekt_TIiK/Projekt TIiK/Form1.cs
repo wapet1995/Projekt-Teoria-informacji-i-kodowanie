@@ -93,7 +93,8 @@ namespace Projekt_TIiK
 
         private void bt_dekoduj_Click(object sender, EventArgs e)
         {
-
+            Compresion compresion = new Compresion();
+            compresion.start("data.json", "file.bin");
         }
     }
 }

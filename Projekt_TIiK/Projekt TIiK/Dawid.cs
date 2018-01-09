@@ -81,7 +81,7 @@ namespace Projekt_TIiK
     {
         String result;
         //panie masz tu w path śćieżke do pliku zapisz mi to co zwróci do result XD
-        public void start(String path,String filename)
+        public void start(String path,String filenameWithPath)
         {
             string python = @"C:\Users\Dawid\AppData\Local\Programs\Python\Python36-32\python.exe";
             string myPythonApp = @"C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt_TIiK\shannon-fano.py";
@@ -102,7 +102,7 @@ namespace Projekt_TIiK
             myProcess.WaitForExit();
             myProcess.Close();
 
-            writeToFile(myString, path+filename);
+            writeToFile(myString, filenameWithPath);
         }
     }
 
