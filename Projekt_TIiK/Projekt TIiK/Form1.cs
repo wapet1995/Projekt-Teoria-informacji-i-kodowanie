@@ -7,8 +7,10 @@ using System.Windows.Forms;
 
 namespace Projekt_TIiK
 {
+    
     public partial class Form1 : Form
     {
+        static string file_path = "";
         string tekst;
         Dictionary<char, double> dict_chars;
         List<SignWithFrequencyAndInformation> signWithFrequencyAndInformation;
@@ -90,13 +92,22 @@ namespace Projekt_TIiK
 
         private void bt_koduj_Click(object sender, EventArgs e)
         {
+            Compresion compresion = new Compresion();
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                compresion.start(file_path, saveFileDialog1.FileName.ToString());
+            }
         }
 
         private void bt_dekoduj_Click(object sender, EventArgs e)
         {
-            Compresion compresion = new Compresion();
-            compresion.start("data.json", "file.bin");
+           
         }
     }
 }
