@@ -56,6 +56,10 @@ def write_json(splited_text, last_dict):
     for i in splited_text:
         tmp.append(last_dict[i])
 
+    for key, val in last_dict.items():
+        if len(key)==1:
+            last_dict[key] = last_dict[key] * -1
+
     last_dict.update({"text": tmp})
 
     with open('data.json', 'w', encoding='utf-8') as outfile:
