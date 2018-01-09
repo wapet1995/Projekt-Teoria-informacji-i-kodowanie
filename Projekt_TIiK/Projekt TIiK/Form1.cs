@@ -26,6 +26,8 @@ namespace Projekt_TIiK
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 tekst = File.ReadAllText(openFileDialog1.FileName);
+                FileInfo fi = new FileInfo(openFileDialog1.FileName);
+                textBox1.Text = (fi.Length / 1024).ToString();
                 TXBox_text.Text = tekst;
                 textBoxLenghText.Text= tekst.Length.ToString();
                 Form1.ActiveForm.Text = "Projekt TIiK. Wczytany tekst: " + openFileDialog1.FileName;
