@@ -64,30 +64,32 @@ namespace Projekt_TIiK
 
                 if (entry.Key != "text")
                 {
-                    Boolean[] series;
-
-                    series = Convert.ToString(Int16.Parse(entry.Value), 2).Select(s => s.Equals('1')).ToArray();
-
+                    String series;
+                   
+                        series = entry.Value;
                   
-                    Boolean[] sizeofSeries;
-                    sizeofSeries = Convert.ToString(series.Length, 2).Select(s => s.Equals('1')).ToArray();
 
-                    if (sizeofSeries.Length < 16 && Int16.Parse(entry.Value)>-1)
+                    
+
+                    if (series.Length < 16 )
                     {
-                       
-                        for (int i = 0; i < 16 - sizeofSeries.Length; i++)
+                    
+                        for (int i = 0; i < 16 - series.Length; i++)
                         { listofBits.Add(false); }
                     }
-                    if (Int16.Parse(entry.Value) > -1)
+
+                    for (int i = 0; i < series.Length; i++)
                     {
-                        for (int i = 0; i < sizeofSeries.Length; i++)
-                        { listofBits.Add(sizeofSeries[i]); }
+                        if (series[i].Equals("1"))
+                        {
+                            listofBits.Add(true);
+                        }
+                        else
+                        {
+                            listofBits.Add(false);
+                        }
                     }
-                    else
-                    {
-                        for (int i = 0; i < series.Length; i++)
-                        { listofBits.Add(series[i]); }
-                    }
+                   
 
                     Boolean[] char1 = Convert.ToString((Int16)entry.Key[0], 2).Select(s => s.Equals('1')).ToArray();
 
@@ -109,7 +111,14 @@ namespace Projekt_TIiK
                    
 
                     for (int i = 0; i < series.Length; i++)
-                    { listofBits.Add(series[i]); }
+                    {
+                        if(series[i].Equals("1"))
+                        { listofBits.Add(true); }
+                        else
+                        {
+                            listofBits.Add(false);
+                        }
+                         }
                 }
             }
 
@@ -117,7 +126,7 @@ namespace Projekt_TIiK
             string value;
             dictionary.TryGetValue("text", out value);
             value = value.Replace("[", "").Replace("]", "");
-            short[] items = value.Split(',').Select(n => Convert.ToInt16(n)).ToArray();
+            String[] items = value.Split(',').Select(n => n).ToArray();
 
 
             for (int j = 0; j < 16; j++)
@@ -128,10 +137,17 @@ namespace Projekt_TIiK
             //zapisanie jej do tablicy 
             for (int i = 0; i < items.Length; i++)
             {
-                Boolean[] pair = Convert.ToString(items[i], 2).Select(s => s.Equals('1')).ToArray();
-                for (int j = 0; j < pair.Length; j++)
+                for (int j = 0; j < items[i].Length; j++)
                 {
-                    listofBits.Add(pair[j]);
+                    if(items[i][j].Equals("1"))
+                    {
+                        listofBits.Add(true);
+                    }
+                    else
+                    {
+                        listofBits.Add(false);
+
+                    }
                 }
 
             }
