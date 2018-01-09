@@ -115,13 +115,15 @@ namespace Projekt_TIiK
 
         private void bt_dekoduj_Click(object sender, EventArgs e)
         {
-            Decompresion decompresion = new Decompresion();
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Image files (*.bin) |";
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                TXBox_text.Text = decompresion.makeDictionary(openFileDialog1.FileName);
-            }
+            /* Decompresion decompresion = new Decompresion();
+             OpenFileDialog openFileDialog1 = new OpenFileDialog();
+             openFileDialog1.Filter = "Image files (*.bin) |";
+             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+             {
+                 TXBox_text.Text = decompresion.makeDictionary(openFileDialog1.FileName);
+             }*/
+            Compresion decompresion = new Compresion();
+            decompresion.test();
         }
     }
 }

@@ -120,11 +120,10 @@ namespace Projekt_TIiK
 
             string value;
             dictionary.TryGetValue("text", out value);
-            value = value.Replace("[", "").Replace("]", "");
+            value = value.Replace("[", "").Replace("]", "").Replace(" ","");
             String[] items = value.Split(',').Select(n => n).ToArray();
 
-            MessageBox.Show(items[0]);
-            MessageBox.Show(value);
+        
             for (int j = 0; j < 16; j++)
             {
                 listofBits.Add(false);
@@ -135,6 +134,7 @@ namespace Projekt_TIiK
             {
                 for (int j = 0; j < items[i].Length; j++)
                 {
+                    MessageBox.Show(items[i][j].ToString());
                     if(items[i][j].Equals('1'))
                     {
                         listofBits.Add(true);
