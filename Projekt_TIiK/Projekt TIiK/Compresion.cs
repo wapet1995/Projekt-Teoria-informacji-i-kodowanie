@@ -103,9 +103,10 @@ namespace Projekt_TIiK
                     { listofBits.Add(false); }
                     for (int i = 0; i < char2.Length; i++)
                     { listofBits.Add(char2[i]); }
+                    
+                    }
                     for (int i = 0; i < series.Length; i++)
                     { listofBits.Add(series[i]); }
-                    }
                 }
             }
 
