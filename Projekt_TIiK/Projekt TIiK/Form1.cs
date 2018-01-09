@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Projekt_TIiK
 {
+    
     public partial class Form1 : Form
     {
+        static string file_path = "";
         string tekst;
         Dictionary<char, double> dict_chars;
         List<SignWithFrequencyAndInformation> signWithFrequencyAndInformation;
@@ -30,15 +28,18 @@ namespace Projekt_TIiK
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 tekst = File.ReadAllText(openFileDialog1.FileName);
+                FileInfo fi = new FileInfo(openFileDialog1.FileName);
+                textBox1.Text = (fi.Length / 1024).ToString();
                 TXBox_text.Text = tekst;
                 textBoxLenghText.Text= tekst.Length.ToString();
+                file_path = openFileDialog1.FileName;
                 Form1.ActiveForm.Text = "Projekt TIiK. Wczytany tekst: " + openFileDialog1.FileName;
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            tekst = tekst.ToLower();
+            tekst = TXBox_text.Text.ToLower();
             dict_chars = tekst.GroupBy(c => c).ToDictionary(g => g.Key, g => (double)g.Count());
             List<char> chars = new List<char>(dict_chars.Keys);
             chars.Sort();
@@ -55,7 +56,7 @@ namespace Projekt_TIiK
             countAmountInformationPerSign();
             dataGridView1.DataSource = signWithFrequencyAndInformation.ToList();// dict_chars.ToList();
             textBoxEntropia.Text = countEntropy().ToString();
-          
+            label2.Text = "Wynik skanowania:";
            
         }
 
@@ -81,19 +82,51 @@ namespace Projekt_TIiK
             signWithFrequencyAndInformation = signWithFrequencyAndInformation.OrderByDescending(x => x.Frequency).ToList();
         }
 
-private void label2_Click(object sender, EventArgs e)
+        private void TXBox_text_TextChanged(object sender, EventArgs e)
         {
-
+            textBoxLenghText.Text = TXBox_text.Text.Length.ToString();
+            if (TXBox_text.Text.Length > 0)
+            {
+                button2.Enabled = true;
+                if (file_path.Length > 0)
+                    bt_koduj.Enabled = true;
+                else
+                    bt_koduj.Enabled = false;
+            }
+            else
+            {
+                button2.Enabled = false;
+                bt_koduj.Enabled = false;
+            }
+                  
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void bt_koduj_Click(object sender, EventArgs e)
         {
+            Compresion compresion = new Compresion();
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                compresion.start(file_path, saveFileDialog1.FileName.ToString());
+                FileInfo fi = new FileInfo(saveFileDialog1.FileName);
+                textBox1.Text = (fi.Length / 1024).ToString();
+            }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void bt_dekoduj_Click(object sender, EventArgs e)
         {
-
+            Decompresion decompresion = new Decompresion();
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = "Image files (*.bin) |";
+            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                TXBox_text.Text = decompresion.makeDictionary(openFileDialog1.FileName);
+            }
         }
     }
 }
