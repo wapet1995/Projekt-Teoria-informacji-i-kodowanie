@@ -102,7 +102,7 @@ namespace Projekt_TIiK
         //panie masz tu w path śćieżke do pliku zapisz mi to co zwróci do result XD
         public void start(String path,String filenameWithPath)
         {
-            string python = @"C:\Users\Dawid\AppData\Local\Programs\Python\Python36-32\python.exe";
+            string python = @"C:\Users\Damian\AppData\Local\Programs\Python\Python36-32\python.exe";
             string myPythonApp = @"C:\Users\Dawid\Documents\GitHub\Projekt-Teoria-informacji-i-kodowanie\Projekt_TIiK\shannon-fano.py";
 
             path = path.Replace('\\', '/');
