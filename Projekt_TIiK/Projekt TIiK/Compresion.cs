@@ -20,6 +20,7 @@ namespace Projekt_TIiK
         private void getDictionaryFromPython(String result)
 
         {
+            Console.WriteLine(result);
             result = result.Replace("[", "\"[").Replace("]", "]\"");
 
             dictionary = JsonConvert.DeserializeObject<Dictionary<String, String>>(result);
@@ -64,6 +65,7 @@ namespace Projekt_TIiK
 
                 if (entry.Key != "text")
                 {
+                   // Console.WriteLine(" " + entry.Key + " " + entry.Value);
                     String series = Convert.ToString(entry.Value.Length, 2);
                     for(int i=0; i<16- series.Length; i++)
                     {
@@ -84,20 +86,25 @@ namespace Projekt_TIiK
                     }
 
 
-               
+                    
                     Boolean[] char1 = Convert.ToString((Int16)entry.Key[0], 2).Select(s => s.Equals('1')).ToArray();
-
-                    for (int i = 0; i < 8 - char1.Length; i++)
+             
+              
+              
+                    for (int i = 0; i < 16 - char1.Length; i++)
                     { listofBits.Add(false);
                     }
                     for (int i = 0; i < char1.Length; i++)
                     { listofBits.Add(char1[i]); }
 
+
+                 
                     if (entry.Key.Length > 1)
                     {
+                       
                         Boolean[] char2 = Convert.ToString((Int16)entry.Key[1], 2).Select(s => s.Equals('1')).ToArray();
 
-                        for (int i = 0; i < 8 - char2.Length; i++)
+                        for (int i = 0; i < 16 - char2.Length; i++)
                         { listofBits.Add(false); }
                         for (int i = 0; i < char2.Length; i++)
                         { listofBits.Add(char2[i]); }
@@ -108,7 +115,7 @@ namespace Projekt_TIiK
 
                         Boolean[] char2 = Convert.ToString((Int16)' ', 2).Select(s => s.Equals('1')).ToArray();
 
-                        for (int i = 0; i < 8 - char2.Length; i++)
+                        for (int i = 0; i < 16 - char2.Length; i++)
                         { listofBits.Add(false); }
                         for (int i = 0; i < char2.Length; i++)
                         { listofBits.Add(char2[i]); }
