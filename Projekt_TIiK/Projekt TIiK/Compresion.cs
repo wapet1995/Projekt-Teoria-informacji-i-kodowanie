@@ -93,7 +93,7 @@ namespace Projekt_TIiK
                     for (int i = 0; i < char1.Length; i++)
                     { listofBits.Add(char1[i]); }
 
-                    if (Int32.Parse(entry.Value) > -1)
+                    if (entry.Key.Length > 1)
                     {
                         Boolean[] char2 = Convert.ToString((Int16)entry.Key[1], 2).Select(s => s.Equals('1')).ToArray();
 
@@ -102,6 +102,16 @@ namespace Projekt_TIiK
                         for (int i = 0; i < char2.Length; i++)
                         { listofBits.Add(char2[i]); }
 
+                    }
+                    else
+                    {
+
+                        Boolean[] char2 = Convert.ToString((Int16)' ', 2).Select(s => s.Equals('1')).ToArray();
+
+                        for (int i = 0; i < 8 - char2.Length; i++)
+                        { listofBits.Add(false); }
+                        for (int i = 0; i < char2.Length; i++)
+                        { listofBits.Add(char2[i]); }
                     }
                    
 
@@ -120,7 +130,7 @@ namespace Projekt_TIiK
 
             string value;
             dictionary.TryGetValue("text", out value);
-            value = value.Replace("[", "").Replace("]", "").Replace(" ","");
+            value = value.Replace("[", "").Replace("]", "").Replace(" ","").Replace("'","");
             String[] items = value.Split(',').Select(n => n).ToArray();
 
         
@@ -134,7 +144,6 @@ namespace Projekt_TIiK
             {
                 for (int j = 0; j < items[i].Length; j++)
                 {
-                    MessageBox.Show(items[i][j].ToString());
                     if(items[i][j].Equals('1'))
                     {
                         listofBits.Add(true);
