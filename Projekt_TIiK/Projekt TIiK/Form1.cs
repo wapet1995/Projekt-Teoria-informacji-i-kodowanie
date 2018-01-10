@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Projekt_TIiK
@@ -107,10 +108,9 @@ namespace Projekt_TIiK
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                compresion.start(file_path, saveFileDialog1.FileName.ToString());
-                FileInfo fi = new FileInfo(saveFileDialog1.FileName);
-                textBox1.Text = (fi.Length / 1024).ToString();
-            }
+                Thread t = new Thread(() => compresion.start(file_path, saveFileDialog1.FileName.ToString(), this));
+                t.Start();
+                            }
         }
 
         private void bt_dekoduj_Click(object sender, EventArgs e)
@@ -120,10 +120,22 @@ namespace Projekt_TIiK
              openFileDialog1.Filter = "Image files (*.bin) |";
              if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
              {
-                 TXBox_text.Text = decompresion.makeDictionary(openFileDialog1.FileName);
+                    Thread t = new Thread(() => decompresion.makeDictionary(openFileDialog1.FileName, this));
+                    t.Start();
+               
              }
           //  Compresion decompresion = new Compresion();
           //  decompresion.test()/
+        }
+
+        public void setDecompresionText(String text)
+        {
+            TXBox_text.Text = text;
+        }
+
+        public void setCompresionText(String text)
+        {
+            textBox1.Text = text;
         }
     }
 }
