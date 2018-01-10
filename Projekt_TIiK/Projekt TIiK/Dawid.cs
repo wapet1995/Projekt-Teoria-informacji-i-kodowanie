@@ -11,7 +11,7 @@ namespace Projekt_TIiK
 {
     public partial class Decompresion
     {
-        //słownik z naszymi parami gdzie kluczem jest liczba short (otrzymana po konwersji z bitarray
+        
         Dictionary<String, String> dictionary =
             new Dictionary<String, String>();
         public void makeDictionary(String path,Form1 window)
@@ -44,16 +44,16 @@ namespace Projekt_TIiK
                 if (i + 32 > tekstArray.Length)
                     break;
                     
-                string firstSignBinary = binaryData.Substring(i + 16, 8);
-                string secondSignBinary = binaryData.Substring(i + 24, 8);
+                string firstSignBinary = binaryData.Substring(i + 16, 16);
+                string secondSignBinary = binaryData.Substring(i + 32, 16);
                 string coupleSings = Convert.ToChar(BitStringToInt(firstSignBinary)) + "" + Convert.ToChar(BitStringToInt(secondSignBinary));
-                string codeSign = binaryData.Substring(i + 32, lengthBinaryInt);
+                string codeSign = binaryData.Substring(i + 48, lengthBinaryInt);
                 Console.WriteLine("dlugosc: " + lengthBinary + "pierwszy znak" + firstSignBinary + " drugi " + secondSignBinary + " kod" + codeSign);
                 Console.WriteLine(codeSign + " " + coupleSings);
                 dictionary.Add(codeSign, coupleSings);
-                if (i + 32 + lengthBinaryInt > tekstArray.Length)
+                if (i + 48 + lengthBinaryInt > tekstArray.Length)
                     break;
-                i = i + 32 + lengthBinaryInt;
+                i = i + 48 + lengthBinaryInt;
             }
 
             i = i + 16;
@@ -74,13 +74,15 @@ namespace Projekt_TIiK
             saveFileDialog1.FilterIndex = 2;
             saveFileDialog1.RestoreDirectory = true;
 
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                System.IO.File.WriteAllText(saveFileDialog1.FileName, encodedText);
-            }
+           
             MethodInvoker inv = delegate
             {
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    System.IO.File.WriteAllText(saveFileDialog1.FileName, encodedText);
+                }
                 window.setDecompresionText(encodedText);
+                MessageBox.Show("Zdekodowano");
             }; window.Invoke(inv);
         }
 
@@ -130,7 +132,7 @@ namespace Projekt_TIiK
 
             StreamReader myStreamReader = myProcess.StandardOutput;
             string myString = myStreamReader.ReadToEnd(); // dane przekazane z pythona
-            Console.WriteLine("sad " + path +  myString);
+            
             myProcess.WaitForExit();
             myProcess.Close();
 
@@ -139,6 +141,7 @@ namespace Projekt_TIiK
             MethodInvoker inv = delegate
             {
                 window.setCompresionText((fi.Length / 1024).ToString());
+                MessageBox.Show("Zakodowano");
             }; window.Invoke(inv);
         }
     }
