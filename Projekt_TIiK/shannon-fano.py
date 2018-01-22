@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # python 3
 import sys
 import pickle
@@ -5,10 +6,10 @@ from collections import Counter
 import json
 
 def load_text_from_file(filename):
-    file = open(filename)
+    file = open(filename, "r", encoding='utf-8')
     text = ''.join(file.readlines())
     file.close()
-    return text
+    return text[1:]
 
 
 def split_text_2c(text):
@@ -71,8 +72,6 @@ if __name__ == '__main__':
     mainList = count_occurrences(splited_text)
     tupleList = mainList
     shannon_fano_encoder(0, len(tupleList) - 1)
-    #print(tupleList)
-    
     last_dict = dict([(tup[1], tup[2]) for tup in tupleList])
     del tupleList
     write_json(splited_text, last_dict)
