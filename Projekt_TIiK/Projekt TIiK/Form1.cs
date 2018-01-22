@@ -135,7 +135,7 @@ namespace Projekt_TIiK
 
         public void setCompresionText(String text)
         {
-            textBox1.Text = text;
+            textBox2.Text = text;
         }
     }
 }
