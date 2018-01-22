@@ -11,7 +11,21 @@ namespace Projekt_TIiK
 {
     public partial class Decompresion
     {
-        
+        private static bool[] ConvertByteToBoolArray(byte b)
+        {
+            // prepare the return result
+            bool[] result = new bool[8];
+
+            // check each bit in the byte. if 1 set to true, if 0 set to false
+            for (int i = 0; i < 8; i++)
+                result[i] = (b & (1 << i)) == 0 ? false : true;
+
+            // reverse the array
+            Array.Reverse(result);
+
+            return result;
+        }
+
         Dictionary<String, String> dictionary =
             new Dictionary<String, String>();
         public void makeDictionary(String path,Form1 window)
@@ -22,17 +36,20 @@ namespace Projekt_TIiK
             {
                 while (reader.BaseStream.Position != reader.BaseStream.Length)
                 {
-                    bool tempBool = reader.ReadBoolean();
-                    if (tempBool == true)
+                    Byte tempBool = reader.ReadByte();
+                    bool[] booleanarray = ConvertByteToBoolArray(tempBool);
+                    foreach(bool item in booleanarray)
+                    { 
+                    if (item == true)
                         binaryData += "1";
                     else
                         binaryData += "0";
-
+                    }
                 }
             }
 
             char[] tekstArray = binaryData.ToArray();
-
+          
             int i = 0;
             for( ; i < tekstArray.Length; )
             {
